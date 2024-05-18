@@ -2,7 +2,18 @@
 
 using namespace std;
 
+int Fibb(int x) {
+	if (x <= 0) return 0;
+	if (x == 1) return 1;
+	if (x > 1) return Fibb(x - 1) + Fibb(x - 2);
+}
+
+
 int main(){
-	cout << "Hello, World!";
+	setlocale(LC_ALL, "RUS");
+	int num_func_Fibb;
+	cout << "Введите номер последовательности чисел Фиббоначи: ";
+	cin >> num_func_Fibb;
+	cout << Fibb(num_func_Fibb);
 	return 0;
 }	
