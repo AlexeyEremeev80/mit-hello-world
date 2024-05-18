@@ -1,19 +1,32 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-int Fibb(int x) {
-	if (x <= 1) return 0;
-	if (x == 2) return 1;
-	if (x > 2) return Fibb(x - 1) + Fibb(x - 2);
+
+
+void Fibb_iter(int x) {
+	int first_fibb = 0;
+	int second_fibb = 1;
+	int now_fibb;
+	for (int i = 0; i < x - 1; i++) {
+		if (i == 0) cout << first_fibb << endl;
+		if (i == 1) cout << second_fibb << endl;
+		else {
+			now_fibb = first_fibb + second_fibb;
+			cout << now_fibb << endl;
+			first_fibb = second_fibb;
+			second_fibb = now_fibb;
+		}
+	}
 }
 
 
 int main(){
 	setlocale(LC_ALL, "RUS");
-	int num_func_Fibb;
+	int num_Fibb;
 	cout << "Введите номер последовательности чисел Фиббоначи: ";
-	cin >> num_func_Fibb;
-	cout << Fibb(num_func_Fibb);
+	cin >> num_Fibb;
+	Fibb_iter(num_Fibb);
 	return 0;
 }	
